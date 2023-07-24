@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <link type="text/css" rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body> 
+    <h2>REGISTRATI</h2>
+    <form name="form" method="post" nsubmit="return handleSubmit(event)">
+       
+        <div class="sinistra">
+            <div class="nomediv">
+                <label for="nome" class="label">NOME</label>
+                <input type="text" onblur="return errorName()" name="nome" placeholder="inserisci nome">
+                <span id="errnom"></span>
+            </div>
+            <div class="cfdiv">
+                <label for="cf" class="label">CF</label>
+                <input type="text" onblur="return erroreCf()" name="cf" placeholder="inserisci cf"> 
+                <span id="errcf"></span>
+            </div>
+            <div class="comunediv">
+                <label for="comune" class="label">COMUNE</label>
+                <input type="text"  onblur="return erroreCom()"onkeyup="return autocompletamento()" name="comune" placeholder="comune" list="sugger">
+                <datalist id="sugger" ></datalist>
+                <span id="errcom"></span>
+            </div>
+            <div class="generediv">
+                <label for="genere" class="label"> SESSO </label>
+                <input type="radio" name="genere" value="M" onblur="errorGenere()"> M
+                <input type="radio" name="genere" value="F"  onblur="errorGenere()"> F
+                <span id="genereErr"></span>
+            </div>
+            <div class="divUser">
+                <label for="user" class="label">USER</label>
+                <input type="text" onblur="return errorUsername()" name="user" placeholder="inserisci username" id="username">
+                <span id="erruser" ></span>
+            </div>
+            <div class="passdiv">
+                <label for="password" class="label">PASSWORD</label>
+                <input type="password" onblur="return errorPassword()" name="password" placeholder="inserisci password" id="password">
+                <span id="errpass"></span>
+            </div>
+            
+        </div>
+        <div class="destra">
+            <div class="cognomediv">
+                <label for="cognome" class="label">COGNOME</label>
+                <input type="text" onblur="return errorCognome()" name="cognome" placeholder="inserisci cognome" id="cognome">
+                <span id="errcogn"></span>
+            </div>
+            <div class="nazionediv">
+                <label for="nazione" class="label">NAZIONE</label>
+                <select name="nazione" onblur="return errorNazione()">
+                    <option value="0" name="nazione">SCEGLI UNA NAZIONE</option>
+                    <option value="ITA" name="nazione">ITALIA</option>
+                </select>
+                <span id="errnaz"></span>
+            </div>
+            <div class="datadiv">
+                <label for="data" class="label">DATA</label>
+                <input type="date" onblur="return errorData()" name="data">
+                <span id="errdata"></span>
+            </div>
+            <div class="emaildiv">
+                <label for="email" class="label">EMAIL</label>
+                <input type="email" onblur="return errorEmail()" name="email" placeholder="inserisci email">
+                <span id="erremail"></span>
+            </div>
+            <div class="confPassDiv">
+            <label for="confpass" class="label">CONF.PASSW</label>
+            <input type="password" onblur="return errorConfPass()"name="confpass" placeholder="conferma password">
+            <span id="errconf"></span>
+            </div>
+            
+            <div class="button">
+                <button type="button" onclick="validazione()">REGISTRATI</button>
+                <span id="errform"></span>
+            </div>
+            <div class="buttondelete">
+                <button type="reset">CANCELLA</button>
+            </div>
+
+
+
+        </div>
+        
+        
+    </form>
+</body>
+</html>
